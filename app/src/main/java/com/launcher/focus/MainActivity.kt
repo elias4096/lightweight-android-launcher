@@ -38,7 +38,8 @@ class MainActivity : ComponentActivity() {
             addCategory(Intent.CATEGORY_LAUNCHER)
         }
 
-        val apps: List<ResolveInfo> = packageManager.queryIntentActivities(intent, 0)
+        var apps: List<ResolveInfo> = packageManager.queryIntentActivities(intent, 0)
+        apps = apps.sortedBy { it.loadLabel(packageManager).toString() }
 
         setContent {
             FocusTheme {
@@ -78,7 +79,7 @@ fun AppButton(app: ResolveInfo, pm: PackageManager) {
             modifier = Modifier.fillMaxWidth(),
             text = "${app.loadLabel(pm)}",
             textAlign = TextAlign.Start,
-            fontSize = 45.sp,
+            fontSize = 40.sp,
         )
     }
 }

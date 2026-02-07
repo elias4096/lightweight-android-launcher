@@ -1,1 +1,1 @@
-# lightweight-android-launcher
+Focus is a lightweight Android launcher I developed as a learning project. No ads, no tracking, no distractions.
